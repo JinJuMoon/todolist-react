@@ -5,9 +5,9 @@ import TodoCount from "./TodoCount";
 
 const TodoApp = () => {
     const [todos, setTodos] = useState([
-        {id: 0, title: '새로운 타이틀', state: 'todo'},
-        {id: 1, title: '완료된 타이틀', state: 'editing'},
-        {id: 2, title: '완료된 타이틀', state: 'completed'}
+        {id: 0, title: '새로운 타이틀', state: 'todo', editing: false},
+        {id: 1, title: '완료된 타이틀', state: 'completed', editing: true},
+        {id: 2, title: '완료된 타이틀', state: 'completed', editing: false}
     ]);
 
     const [nextId, setNextId] = useState(3);
@@ -15,7 +15,7 @@ const TodoApp = () => {
     const onSubmitTodos = todo => {
         const nextTodos = [
             ...todos,
-            {id: nextId, title: todo.title, state: todo.state}
+            {id: nextId, title: todo.title, state: todo.state, editing: false}
         ];
         setTodos(nextTodos);
         setNextId(nextId + 1);
@@ -37,9 +37,13 @@ const TodoApp = () => {
 
     const onEditItem = id => {
         const nextTodos = todos.map(todo =>
-            todo.id === id ? ({...todo, state: 'editing'}) : todo
+            todo.id === id ? ({...todo, editing: true}) : todo
         )
         setTodos(nextTodos);
+    }
+
+    const onExitEditingMode = id => {
+        // todo: 편집 모드를 빠져나가는 기능 구현해야 함
     }
 
     return (
@@ -51,6 +55,7 @@ const TodoApp = () => {
                 onChangeItemState={onChangeItemState}
                 onDeleteItem={onDeleteItem}
                 onEditItem={onEditItem}
+                onExitEditingMode={onExitEditingMode}
             />
             <TodoCount />
         </section>
