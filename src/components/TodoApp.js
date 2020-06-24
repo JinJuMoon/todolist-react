@@ -21,13 +21,7 @@ const TodoApp = () => {
         setNextId(nextId + 1);
     }
 
-    const onChangeState = (id, checked) => {
-        const updatedTodo = todos.filter(todo => todo.id === id)
-            .map(todo => {
-                todo.state = checked ? 'completed' : 'todo'
-                return todo;
-            });
-
+    const onChangeItemState = (id, checked) => {
         const changeState = checked => checked ? 'completed' : 'todo';
 
         const nextTodos = todos.map(todo =>
@@ -35,14 +29,13 @@ const TodoApp = () => {
         )
 
         setTodos(nextTodos);
-        console.log(todos)
     }
 
     return (
         <section className="todoapp">
             <h1>TODOS</h1>
             <TodoInput onSubmit={onSubmitTodos} />
-            <TodoList todos={todos} onChangeState={onChangeState}/>
+            <TodoList todos={todos} onChangeItemState={onChangeItemState}/>
             <TodoCount />
         </section>
     );
