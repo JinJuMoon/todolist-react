@@ -1,6 +1,16 @@
 import React from "react";
 
-const TodoInput = () => {
+const TodoInput = props => {
+    const onKeyPress = event => {
+        if (event.key === 'Enter') {
+            const todo = {
+                title: event.target.value,
+                state: 'todo'
+            }
+            props.onSubmit(todo);
+        }
+    };
+
     return (
         <div>
             <input
@@ -8,6 +18,7 @@ const TodoInput = () => {
                 className="new-todo"
                 placeholder="할일을 추가해주세요"
                 autoFocus
+                onKeyPress={onKeyPress}
             />
         </div>
     );
