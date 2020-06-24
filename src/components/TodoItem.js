@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 const TodoItem = props => {
-    const [id, setId] = useState(props.todo.id);
+    const onClickCheckBox = event => props.onChangeItemState(props.todo.id, event.target.checked)
 
-    const onClickCheckBox = event => {
-        props.onChangeItemState(id, event.target.checked);
+    const onClickDeleteButton = event => {
+        props.onDeleteItem(props.todo.id)
     }
 
     return (
@@ -12,7 +12,7 @@ const TodoItem = props => {
             <div className="view">
                 <input className="toggle" type="checkbox" onClick={onClickCheckBox}/>
                 <label className="label">{props.todo.title}</label>
-                <button className="destroy"></button>
+                <button className="destroy" onClick={onClickDeleteButton}></button>
             </div>
             <input className="edit" value={props.todo.title}/>
         </li>

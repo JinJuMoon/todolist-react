@@ -31,11 +31,16 @@ const TodoApp = () => {
         setTodos(nextTodos);
     }
 
+    const onDeleteItem = id => {
+        const nextTodos = todos.filter(todo => todo.id !== id);
+        setTodos(nextTodos);
+    }
+
     return (
         <section className="todoapp">
             <h1>TODOS</h1>
             <TodoInput onSubmit={onSubmitTodos} />
-            <TodoList todos={todos} onChangeItemState={onChangeItemState}/>
+            <TodoList todos={todos} onChangeItemState={onChangeItemState} onDeleteItem={onDeleteItem} />
             <TodoCount />
         </section>
     );

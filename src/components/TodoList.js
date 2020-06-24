@@ -2,13 +2,13 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 const TodoList = props => {
-    const onChangeItemState = (id, checked) => {
-        props.onChangeItemState(id, checked)
-    };
+    const onChangeItemState = (id, checked) => props.onChangeItemState(id, checked)
+
+    const onDeleteItem = id => props.onDeleteItem(id)
 
     const todosList = props.todos.map(todo => {
         return (
-            <TodoItem todo={todo} onChangeItemState={onChangeItemState}/>
+            <TodoItem todo={todo} onChangeItemState={onChangeItemState} onDeleteItem={onDeleteItem}/>
         );
     });
 
