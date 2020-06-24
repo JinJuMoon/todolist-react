@@ -6,9 +6,11 @@ const TodoList = props => {
 
     const onDeleteItem = id => props.onDeleteItem(id)
 
+    const onEditItem = id => props.onEditItem(id)
+
     const todosList = props.todos.map(todo => {
         return (
-            <TodoItem todo={todo} onChangeItemState={onChangeItemState} onDeleteItem={onDeleteItem}/>
+            <TodoItem todo={todo} onChangeItemState={onChangeItemState} onDeleteItem={onDeleteItem} onEditItem={onEditItem}/>
         );
     });
 

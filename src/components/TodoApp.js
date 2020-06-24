@@ -36,11 +36,18 @@ const TodoApp = () => {
         setTodos(nextTodos);
     }
 
+    const onEditItem = id => {
+        const nextTodos = todos.map(todo =>
+            todo.id === id ? ({...todo, state: 'editing'}) : todo
+        )
+        setTodos(nextTodos);
+    }
+
     return (
         <section className="todoapp">
             <h1>TODOS</h1>
             <TodoInput onSubmit={onSubmitTodos} />
-            <TodoList todos={todos} onChangeItemState={onChangeItemState} onDeleteItem={onDeleteItem} />
+            <TodoList todos={todos} onChangeItemState={onChangeItemState} onDeleteItem={onDeleteItem} onEditItem={onEditItem}/>
             <TodoCount />
         </section>
     );
