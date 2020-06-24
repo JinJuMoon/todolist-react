@@ -6,6 +6,7 @@ const TodoList = props => {
     const onDeleteItem = id => props.onDeleteItem(id)
     const onStartEditingMode = id => props.onStartEditingMode(id)
     const onExitEditingMode = id => props.onExitEditingMode(id)
+    const onChangeItemTitle = (id, title) => props.onChangeItemTitle(id, title)
 
     const todosList = props.todos.map(todo => {
         return (
@@ -15,6 +16,7 @@ const TodoList = props => {
                 onDeleteItem={onDeleteItem}
                 onStartEditingMode={onStartEditingMode}
                 onExitEditingMode={onExitEditingMode}
+                onChangeItemTitle={onChangeItemTitle}
             />
         );
     });

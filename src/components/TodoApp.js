@@ -49,6 +49,13 @@ const TodoApp = () => {
         setTodos(nextTodos);
     }
 
+    const onChangeItemTitle = (id, title) => {
+        const nextTodos = todos.map(todo =>
+            todo.id === id ? ({...todo, title: title, editing: false}) : todo
+        )
+        setTodos(nextTodos);
+    }
+
     return (
         <section className="todoapp">
             <h1>TODOS</h1>
@@ -59,6 +66,7 @@ const TodoApp = () => {
                 onDeleteItem={onDeleteItem}
                 onStartEditingMode={onStartEditingMode}
                 onExitEditingMode={onExitEditingMode}
+                onChangeItemTitle={onChangeItemTitle}
             />
             <TodoCount />
         </section>
