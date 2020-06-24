@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem";
 const TodoList = props => {
     const onChangeItemState = (id, checked) => props.onChangeItemState(id, checked)
     const onDeleteItem = id => props.onDeleteItem(id)
-    const onEditItem = id => props.onEditItem(id)
+    const onStartEditingMode = id => props.onStartEditingMode(id)
     const onExitEditingMode = id => props.onExitEditingMode(id)
 
     const todosList = props.todos.map(todo => {
@@ -13,7 +13,7 @@ const TodoList = props => {
                 todo={todo}
                 onChangeItemState={onChangeItemState}
                 onDeleteItem={onDeleteItem}
-                onEditItem={onEditItem}
+                onStartEditingMode={onStartEditingMode}
                 onExitEditingMode={onExitEditingMode}
             />
         );

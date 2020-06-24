@@ -3,7 +3,7 @@ import React from "react";
 const TodoItem = props => {
     const onClickCheckBox = event => props.onChangeItemState(props.todo.id, event.target.checked)
     const onClickDeleteButton = event => props.onDeleteItem(props.todo.id)
-    const onDoubleClickTitle = event => props.onEditItem(props.todo.id)
+    const onDoubleClickTitle = event => props.onStartEditingMode(props.todo.id)
     const onKeyDown = event => {
         if (event.key === 'Escape') {
             props.onExitEditingMode(props.todo.id);

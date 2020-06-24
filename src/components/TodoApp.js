@@ -35,7 +35,7 @@ const TodoApp = () => {
         setTodos(nextTodos);
     }
 
-    const onEditItem = id => {
+    const onStartEditingMode = id => {
         const nextTodos = todos.map(todo =>
             todo.id === id ? ({...todo, editing: true}) : todo
         )
@@ -57,7 +57,7 @@ const TodoApp = () => {
                 todos={todos}
                 onChangeItemState={onChangeItemState}
                 onDeleteItem={onDeleteItem}
-                onEditItem={onEditItem}
+                onStartEditingMode={onStartEditingMode}
                 onExitEditingMode={onExitEditingMode}
             />
             <TodoCount />
