@@ -1,16 +1,10 @@
 import React from "react";
+import TodoItem from "./TodoItem";
 
 const TodoList = props => {
     const todosList = props.todos.map(todo => {
         return (
-            <li className={todo.state}>
-                <div className="view">
-                    <input className="toggle" type="checkbox"/>
-                    <label className="label">{todo.title}</label>
-                    <button className="destroy"></button>
-                </div>
-                <input className="edit" value={todo.title}/>
-            </li>
+            <TodoItem todo={todo} />
         );
     });
 
