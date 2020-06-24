@@ -8,6 +8,7 @@ const TodoInput = props => {
                 state: 'todo'
             }
             props.onSubmit(todo);
+            event.target.value = '';
         }
     };
 
