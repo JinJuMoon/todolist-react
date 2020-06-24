@@ -43,7 +43,10 @@ const TodoApp = () => {
     }
 
     const onExitEditingMode = id => {
-        // todo: 편집 모드를 빠져나가는 기능 구현해야 함
+        const nextTodos = todos.map(todo =>
+            todo.id === id ? ({...todo, editing: false}) : todo
+        )
+        setTodos(nextTodos);
     }
 
     return (
