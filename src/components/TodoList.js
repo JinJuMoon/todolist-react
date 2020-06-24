@@ -11,6 +11,7 @@ const TodoList = props => {
     const todosList = props.todos.map(todo => {
         return (
             <TodoItem
+                key={todo.id}
                 todo={todo}
                 onChangeItemState={onChangeItemState}
                 onDeleteItem={onDeleteItem}
