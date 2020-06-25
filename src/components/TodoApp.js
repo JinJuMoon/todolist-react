@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import TodoInput from "./TodoInput";
-import TodoCount from "./TodoCount";
 import TodoFilter from "./TodoFilter";
 
 const TodoApp = () => {
@@ -73,8 +72,8 @@ const TodoApp = () => {
                 onStartEditingMode={onStartEditingMode}
                 onExitEditingMode={onExitEditingMode}
                 onChangeItemTitle={onChangeItemTitle}
+                onChangeViewMode={onChangeViewMode}
             />
-            <TodoCount count={todos.length} onChangeViewMode={onChangeViewMode}/>
         </section>
     );
 };
