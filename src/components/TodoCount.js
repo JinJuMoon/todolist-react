@@ -1,9 +1,9 @@
 import React from "react";
 
-const TodoCount = () => {
+const TodoCount = props => {
     return (
         <div className="count-container">
-            <span className="todo-count">총 <strong>0</strong> 개</span>
+            <span className="todo-count">총 <strong>{props.count}</strong> 개</span>
             <ul className="filters">
                 <li>
                     <a className="all selected" href="#/">전체보기</a>

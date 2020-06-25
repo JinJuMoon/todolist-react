@@ -68,7 +68,7 @@ const TodoApp = () => {
                 onExitEditingMode={onExitEditingMode}
                 onChangeItemTitle={onChangeItemTitle}
             />
-            <TodoCount />
+            <TodoCount count={todos.length}/>
         </section>
     );
 };
