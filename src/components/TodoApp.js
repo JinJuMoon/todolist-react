@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TodoList from "./TodoList";
 import TodoInput from "./TodoInput";
 import TodoCount from "./TodoCount";
+import TodoFilter from "./TodoFilter";
 
 const TodoApp = () => {
     const [todos, setTodos] = useState([
@@ -60,7 +60,7 @@ const TodoApp = () => {
         <section className="todoapp">
             <h1>TODOS</h1>
             <TodoInput onSubmit={onSubmitTodos} />
-            <TodoList
+            <TodoFilter
                 todos={todos}
                 onChangeItemState={onChangeItemState}
                 onDeleteItem={onDeleteItem}
@@ -68,7 +68,7 @@ const TodoApp = () => {
                 onExitEditingMode={onExitEditingMode}
                 onChangeItemTitle={onChangeItemTitle}
             />
-            <TodoCount count={todos.length}/>
+            <TodoCount count={todos.length} />
         </section>
     );
 };
