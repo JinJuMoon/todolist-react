@@ -5,7 +5,7 @@ const TodoInput = props => {
         if (event.key === 'Enter') {
             const todo = {
                 title: event.target.value,
-                state: 'todo'
+                state: 'active'
             }
             props.onSubmit(todo);
             event.target.value = '';

@@ -2,7 +2,7 @@ import React from "react";
 
 const TodoCount = props => {
     const onClickAllBtn = () => props.onChangeViewMode('all');
-    const onClickActiveBtn = () => props.onChangeViewMode('todo');
+    const onClickActiveBtn = () => props.onChangeViewMode('active');
     const onClickCompletedBtn = () => props.onChangeViewMode('completed');
 
     return (

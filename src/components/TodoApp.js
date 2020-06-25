@@ -5,7 +5,7 @@ import TodoFilter from "./TodoFilter";
 
 const TodoApp = () => {
     const [todos, setTodos] = useState([
-        {id: 0, title: '새로운 타이틀', state: 'todo', editing: false},
+        {id: 0, title: '새로운 타이틀', state: 'active', editing: false},
         {id: 1, title: '완료된 타이틀', state: 'completed', editing: true},
         {id: 2, title: '완료된 타이틀', state: 'completed', editing: false}
     ]);
@@ -23,7 +23,7 @@ const TodoApp = () => {
     }
 
     const onChangeItemState = (id, checked) => {
-        const changeState = checked => checked ? 'completed' : 'todo';
+        const changeState = checked => checked ? 'completed' : 'active';
 
         const nextTodos = todos.map(todo =>
             todo.id === id ? ({...todo, state: changeState(checked)}) : todo
