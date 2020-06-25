@@ -11,6 +11,7 @@ const TodoApp = () => {
     ]);
 
     const [nextId, setNextId] = useState(3);
+    const [viewMode, setViewMode] = useState('all');
 
     const onSubmitTodos = todo => {
         const nextTodos = [
@@ -56,19 +57,24 @@ const TodoApp = () => {
         setTodos(nextTodos);
     }
 
+    const onChangeViewMode = viewMode => {
+        setViewMode(viewMode);
+    }
+
     return (
         <section className="todoapp">
             <h1>TODOS</h1>
             <TodoInput onSubmit={onSubmitTodos} />
             <TodoFilter
                 todos={todos}
+                viewMode={viewMode}
                 onChangeItemState={onChangeItemState}
                 onDeleteItem={onDeleteItem}
                 onStartEditingMode={onStartEditingMode}
                 onExitEditingMode={onExitEditingMode}
                 onChangeItemTitle={onChangeItemTitle}
             />
-            <TodoCount count={todos.length} />
+            <TodoCount count={todos.length} onChangeViewMode={onChangeViewMode}/>
         </section>
     );
 };

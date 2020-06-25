@@ -8,7 +8,11 @@ const TodoFilter = props => {
     const onExitEditingMode = id => props.onExitEditingMode(id)
     const onChangeItemTitle = (id, title) => props.onChangeItemTitle(id, title)
 
-    const filteredTodos = props.todos;
+    const filterTodos = () => {
+        return props.todos.filter(todo => todo.state === props.viewMode);
+    }
+
+    const filteredTodos = props.viewMode === 'all' ? props.todos : filterTodos();
 
     return (
         <TodoList

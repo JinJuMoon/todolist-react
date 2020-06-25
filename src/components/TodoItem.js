@@ -4,7 +4,7 @@ const TodoItem = props => {
     const [title, setTitle] = useState(props.todo.title);
 
     const onClickCheckBox = event => props.onChangeItemState(props.todo.id, event.target.checked)
-    const onClickDeleteButton = event => props.onDeleteItem(props.todo.id)
+    const onClickDeleteBtn = event => props.onDeleteItem(props.todo.id)
     const onDoubleClickTitle = event => props.onStartEditingMode(props.todo.id)
     const onKeyDown = event => {
         if (event.key === 'Escape') {
@@ -28,7 +28,7 @@ const TodoItem = props => {
                 <label className="label" onDoubleClick={onDoubleClickTitle}>
                     {props.todo.title}
                 </label>
-                <button className="destroy" onClick={onClickDeleteButton} />
+                <button className="destroy" onClick={onClickDeleteBtn} />
             </div>
             <input
                 className="edit"
