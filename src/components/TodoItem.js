@@ -21,10 +21,12 @@ const TodoItem = props => {
         setTitle(event.target.value);
     }
 
+    const defaultChecked = props.todo.state === 'completed';
+
     return (
         <li id={props.todo.id} className={props.todo.editing ? 'editing' : props.todo.state}>
             <div className="view">
-                <input className="toggle" type="checkbox" onClick={onClickCheckBox}/>
+                <input className="toggle" defaultChecked={defaultChecked} type="checkbox" onClick={onClickCheckBox}/>
                 <label className="label" onDoubleClick={onDoubleClickTitle}>
                     {props.todo.title}
                 </label>
