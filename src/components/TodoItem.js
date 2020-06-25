@@ -13,7 +13,6 @@ const TodoItem = props => {
         }
         if (event.key === 'Enter') {
             props.onChangeItemTitle(props.todo.id, event.target.value);
-            setTitle(props.todo.title);
         }
     }
 
@@ -28,7 +27,7 @@ const TodoItem = props => {
             <div className="view">
                 <input className="toggle" defaultChecked={defaultChecked} type="checkbox" onClick={onClickCheckBox}/>
                 <label className="label" onDoubleClick={onDoubleClickTitle}>
-                    {props.todo.title}
+                    {title}
                 </label>
                 <button className="destroy" onClick={onClickDeleteBtn} />
             </div>
