@@ -23,10 +23,10 @@ const TodoApp = () => {
     }
 
     const onChangeItemState = (id, checked) => {
-        const changeState = checked => checked ? TODO_STATE_TYPE.completed : TODO_STATE_TYPE.active;
+        const changeState = checked ? TODO_STATE_TYPE.completed : TODO_STATE_TYPE.active;
 
         const nextTodos = todos.map(todo =>
-            todo.id === id ? ({...todo, state: changeState(checked)}) : todo
+            todo.id === id ? {...todo, state: changeState} : todo
         )
         setTodos(nextTodos);
     }
@@ -38,21 +38,21 @@ const TodoApp = () => {
 
     const onStartEditingMode = id => {
         const nextTodos = todos.map(todo =>
-            todo.id === id ? ({...todo, editing: true}) : todo
+            todo.id === id ? {...todo, editing: true} : todo
         )
         setTodos(nextTodos);
     }
 
     const onExitEditingMode = id => {
         const nextTodos = todos.map(todo =>
-            todo.id === id ? ({...todo, editing: false}) : todo
+            todo.id === id ? {...todo, editing: false} : todo
         )
         setTodos(nextTodos);
     }
 
     const onChangeItemTitle = (id, title) => {
         const nextTodos = todos.map(todo =>
-            todo.id === id ? ({...todo, title: title, editing: false}) : todo
+            todo.id === id ? {...todo, title: title, editing: false} : todo
         )
         setTodos(nextTodos);
     }
