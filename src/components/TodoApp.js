@@ -57,9 +57,12 @@ const TodoApp = () => {
         setTodos(nextTodos);
     }
 
-    const onChangeViewMode = viewMode => {
-        setViewMode(viewMode);
+    const onClickAllBtn = () => {
+        setViewMode(VIEW_MODE_TYPE.all);
+        console.log(viewMode)
     }
+    const onClickActiveBtn = () => setViewMode(VIEW_MODE_TYPE.active);
+    const onClickCompletedBtn = () => setViewMode(VIEW_MODE_TYPE.completed);
 
     return (
         <section className="todoapp">
@@ -73,7 +76,9 @@ const TodoApp = () => {
                 onStartEditingMode={onStartEditingMode}
                 onExitEditingMode={onExitEditingMode}
                 onChangeItemTitle={onChangeItemTitle}
-                onChangeViewMode={onChangeViewMode}
+                onClickAllBtn={onClickAllBtn}
+                onClickActiveBtn={onClickActiveBtn}
+                onClickCompletedBtn={onClickCompletedBtn}
             />
         </section>
     );

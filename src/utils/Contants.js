@@ -9,5 +9,7 @@ export const TODO_STATE_TYPE = {
 }
 
 export const VIEW_MODE_TYPE = {
-    all: 'all'
+    all: 'all',
+    active: 'active',
+    completed: 'completed'
 }

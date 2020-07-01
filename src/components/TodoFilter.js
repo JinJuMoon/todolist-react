@@ -20,7 +20,11 @@ const TodoFilter = props => {
                 onExitEditingMode={props.onExitEditingMode}
                 onChangeItemTitle={props.onChangeItemTitle}
             />
-            <TodoCount count={filteredTodos.length} onChangeViewMode={props.onChangeViewMode}/>
+            <TodoCount
+                count={filteredTodos.length}
+                onClickAllBtn={props.onClickAllBtn}
+                onClickActiveBtn={props.onClickActiveBtn}
+                onClickCompletedBtn={props.onClickCompletedBtn}/>
         </>
         );
 }
