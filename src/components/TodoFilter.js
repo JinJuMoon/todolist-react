@@ -3,28 +3,30 @@ import React from "react";
 import TodoCount from "./TodoCount";
 import { VIEW_MODE_TYPE } from "../utils/Contants";
 
-const TodoFilter = props => {
+const TodoFilter = ({todos, viewMode,
+                        onChangeItemState, onDeleteItem, onStartEditingMode, onExitEditingMode, onChangeItemTitle,
+                        onClickAllBtn, onClickActiveBtn, onClickCompletedBtn}) => {
     const filterTodos = () => {
-        return props.todos.filter(todo => todo.state === props.viewMode);
+        return todos.filter(todo => todo.state === viewMode);
     }
 
-    const filteredTodos = props.viewMode === VIEW_MODE_TYPE.all ? props.todos : filterTodos();
+    const filteredTodos = viewMode === VIEW_MODE_TYPE.all ? todos : filterTodos();
 
     return (
         <>
             <TodoList
                 todos={filteredTodos}
-                onChangeItemState={props.onChangeItemState}
-                onDeleteItem={props.onDeleteItem}
-                onStartEditingMode={props.onStartEditingMode}
-                onExitEditingMode={props.onExitEditingMode}
-                onChangeItemTitle={props.onChangeItemTitle}
+                onChangeItemState={onChangeItemState}
+                onDeleteItem={onDeleteItem}
+                onStartEditingMode={onStartEditingMode}
+                onExitEditingMode={onExitEditingMode}
+                onChangeItemTitle={onChangeItemTitle}
             />
             <TodoCount
                 count={filteredTodos.length}
-                onClickAllBtn={props.onClickAllBtn}
-                onClickActiveBtn={props.onClickActiveBtn}
-                onClickCompletedBtn={props.onClickCompletedBtn}/>
+                onClickAllBtn={onClickAllBtn}
+                onClickActiveBtn={onClickActiveBtn}
+                onClickCompletedBtn={onClickCompletedBtn}/>
         </>
         );
 }

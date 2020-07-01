@@ -1,17 +1,17 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = props => {
-    const todosList = props.todos.map(todo => {
+const TodoList = ({todos, onChangeItemState, onDeleteItem, onStartEditingMode, onExitEditingMode, onChangeItemTitle}) => {
+    const todosList = todos.map(todo => {
         return (
             <TodoItem
                 key={todo.id}
                 todo={todo}
-                onChangeItemState={props.onChangeItemState}
-                onDeleteItem={props.onDeleteItem}
-                onStartEditingMode={props.onStartEditingMode}
-                onExitEditingMode={props.onExitEditingMode}
-                onChangeItemTitle={props.onChangeItemTitle}
+                onChangeItemState={onChangeItemState}
+                onDeleteItem={onDeleteItem}
+                onStartEditingMode={onStartEditingMode}
+                onExitEditingMode={onExitEditingMode}
+                onChangeItemTitle={onChangeItemTitle}
             />
         );
     });

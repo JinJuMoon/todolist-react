@@ -1,13 +1,13 @@
 import React from "react";
 
-const TodoInput = props => {
+const TodoInput = ({onSubmit}) => {
     const onKeyPress = event => {
         if (event.key === 'Enter') {
             const todo = {
                 title: event.target.value,
                 state: 'active'
             }
-            props.onSubmit(todo);
+            onSubmit(todo);
             event.target.value = '';
         }
     };

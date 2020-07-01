@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { KEY_TYPE, TODO_STATE_TYPE } from "../utils/Contants";
 
-const TodoItem = props => {
-    const [title, setTitle] = useState(props.todo.title);
+const TodoItem = ({todo, onChangeItemState, onDeleteItem, onStartEditingMode, onExitEditingMode, onChangeItemTitle}) => {
+    const [title, setTitle] = useState(todo.title);
 
-    const onClickCheckBox = event => props.onChangeItemState(props.todo.id, event.target.checked)
-    const onClickDeleteBtn = event => props.onDeleteItem(props.todo.id)
-    const onDoubleClickTitle = event => props.onStartEditingMode(props.todo.id)
+    const onClickCheckBox = event => onChangeItemState(todo.id, event.target.checked)
+    const onClickDeleteBtn = event => onDeleteItem(todo.id)
+    const onDoubleClickTitle = event => onStartEditingMode(todo.id)
     const onKeyDown = event => {
         if (event.key === KEY_TYPE.esc) {
-            props.onExitEditingMode(props.todo.id);
-            setTitle(props.todo.title);
+            onExitEditingMode(todo.id);
+            setTitle(todo.title);
         }
         if (event.key === KEY_TYPE.enter) {
-            props.onChangeItemTitle(props.todo.id, event.target.value);
+            onChangeItemTitle(todo.id, event.target.value);
         }
     }
 
@@ -21,10 +21,10 @@ const TodoItem = props => {
         setTitle(event.target.value);
     }
 
-    const defaultChecked = props.todo.state === TODO_STATE_TYPE.completed;
+    const defaultChecked = todo.state === TODO_STATE_TYPE.completed;
 
     return (
-        <li id={props.todo.id} className={props.todo.editing ? "editing" : props.todo.state}>
+        <li id={todo.id} className={todo.editing ? "editing" : todo.state}>
             <div className="view">
                 <input className="toggle" defaultChecked={defaultChecked} type="checkbox" onClick={onClickCheckBox}/>
                 <label className="label" onDoubleClick={onDoubleClickTitle}>
