@@ -1,13 +1,14 @@
 import TodoList from "./TodoList";
 import React from "react";
 import TodoCount from "./TodoCount";
+import { VIEW_MODE_TYPE } from "../utils/Contants";
 
 const TodoFilter = props => {
     const filterTodos = () => {
         return props.todos.filter(todo => todo.state === props.viewMode);
     }
 
-    const filteredTodos = props.viewMode === 'all' ? props.todos : filterTodos();
+    const filteredTodos = props.viewMode === VIEW_MODE_TYPE.all ? props.todos : filterTodos();
 
     return (
         <>

@@ -1,9 +1,10 @@
 import React from "react";
+import { VIEW_MODE_TYPE } from "../utils/Contants";
 
 const TodoCount = props => {
-    const onClickAllBtn = () => props.onChangeViewMode('all');
-    const onClickActiveBtn = () => props.onChangeViewMode('active');
-    const onClickCompletedBtn = () => props.onChangeViewMode('completed');
+    const onClickAllBtn = () => props.onChangeViewMode(VIEW_MODE_TYPE.all);
+    const onClickActiveBtn = () => props.onChangeViewMode(VIEW_MODE_TYPE.active);
+    const onClickCompletedBtn = () => props.onChangeViewMode(VIEW_MODE_TYPE.completed);
 
     return (
         <div className="count-container">

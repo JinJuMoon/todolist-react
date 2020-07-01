@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import TodoInput from "./TodoInput";
 import TodoFilter from "./TodoFilter";
+import { TODO_STATE_TYPE, VIEW_MODE_TYPE } from "../utils/Contants";
 
 const TodoApp = () => {
     const [todos, setTodos] = useState([
-        {id: 0, title: '새로운 타이틀', state: 'active', editing: false},
-        {id: 1, title: '완료된 타이틀', state: 'completed', editing: true},
-        {id: 2, title: '완료된 타이틀', state: 'completed', editing: false}
+        {id: 0, title: '새로운 타이틀', state: TODO_STATE_TYPE.active, editing: false},
+        {id: 1, title: '완료된 타이틀', state: TODO_STATE_TYPE.completed, editing: true},
+        {id: 2, title: '완료된 타이틀', state: TODO_STATE_TYPE.completed, editing: false}
     ]);
 
     const [nextId, setNextId] = useState(3);
-    const [viewMode, setViewMode] = useState('all');
+    const [viewMode, setViewMode] = useState(VIEW_MODE_TYPE.all);
 
     const onSubmitTodos = todo => {
         const nextTodos = [
@@ -22,7 +23,7 @@ const TodoApp = () => {
     }
 
     const onChangeItemState = (id, checked) => {
-        const changeState = checked => checked ? 'completed' : 'active';
+        const changeState = checked => checked ? TODO_STATE_TYPE.completed : TODO_STATE_TYPE.active;
 
         const nextTodos = todos.map(todo =>
             todo.id === id ? ({...todo, state: changeState(checked)}) : todo
