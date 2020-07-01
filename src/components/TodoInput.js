@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 const TodoInput = ({onSubmit}) => {
+    const [titleInput, setTitleInput] = useState('')
+
+    const onChange = event => {
+        setTitleInput(event.target.value);
+    }
+
     const onKeyPress = event => {
         if (event.key === 'Enter') {
             const todo = {
@@ -8,7 +14,7 @@ const TodoInput = ({onSubmit}) => {
                 state: 'active'
             }
             onSubmit(todo);
-            event.target.value = '';
+            setTitleInput('');
         }
     };
 
@@ -19,6 +25,8 @@ const TodoInput = ({onSubmit}) => {
                 className="new-todo"
                 placeholder="할일을 추가해주세요"
                 autoFocus
+                value={titleInput}
+                onChange={onChange}
                 onKeyPress={onKeyPress}
             />
         </div>
